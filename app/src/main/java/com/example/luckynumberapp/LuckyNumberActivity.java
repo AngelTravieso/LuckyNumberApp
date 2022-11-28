@@ -2,9 +2,11 @@ package com.example.luckynumberapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LuckyNumberActivity extends AppCompatActivity {
 
@@ -22,7 +24,14 @@ public class LuckyNumberActivity extends AppCompatActivity {
         luckyNumberTxt = findViewById(R.id.lucky_number_txt);
         share_btn = findViewById(R.id.share_number_btn);
 
-        
+        Intent i = getIntent();
+
+        // get data from the MainActivity
+        String userName = i.getStringExtra("name");
+
+        Toast.makeText(this, "Username: " + userName, Toast.LENGTH_SHORT).show();
+
+
 
     }
 }
