@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class LuckyNumberActivity extends AppCompatActivity {
 
     // declaring widgets
@@ -26,12 +28,26 @@ public class LuckyNumberActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        // get data from the MainActivity
+        // get userName from the MainActivity
         String userName = i.getStringExtra("name");
 
-        Toast.makeText(this, "Username: " + userName, Toast.LENGTH_SHORT).show();
+        // Random Number Generated
+        int randomNumber = generateRandomNumber();
 
+        luckyNumberTxt.setText("" + randomNumber);
 
 
     }
+
+    public int generateRandomNumber() {
+        // Random class
+        Random random = new Random();
+        int upper_limit = 1000;
+
+        // 1000 is not included
+        int randomNumberGenerated = random.nextInt(upper_limit);
+
+        return randomNumberGenerated;
+    }
+
 }
